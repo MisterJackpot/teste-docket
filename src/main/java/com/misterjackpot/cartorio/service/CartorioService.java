@@ -3,7 +3,6 @@ package com.misterjackpot.cartorio.service;
 import com.misterjackpot.cartorio.config.exception.ResourceNotFoundException;
 import com.misterjackpot.cartorio.converter.CartorioConverter;
 import com.misterjackpot.cartorio.dto.CartorioDTO;
-import com.misterjackpot.cartorio.infra.entity.CartorioEntity;
 import com.misterjackpot.cartorio.infra.repository.CartorioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,11 @@ public class CartorioService {
     }
 
     public void excluirCartorio(Long id) {
-        repository.deleteById(id);
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException(String.format("Cartório %s não foi encontrado", id));
+        }
     }
 
     public void atualizarCartorio(Long id, CartorioDTO cartorio) {

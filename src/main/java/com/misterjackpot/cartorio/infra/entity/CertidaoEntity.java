@@ -1,9 +1,6 @@
 package com.misterjackpot.cartorio.infra.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -20,6 +17,7 @@ public class CertidaoEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private CartorioEntity cartorio;
 
     private Long tipo;
