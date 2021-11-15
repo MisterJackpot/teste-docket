@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport">
+    <title>Thymeleaf Form handling Demo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body class="container">
+<h1 class="py-5">Thymeleaf Form handling Demo</h1>
+<form class="col card p-3 mb-5" method="post" th:action="@{/cartorios/}" th:object="${cartorioDTO}">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input class="form-control" id="nome" placeholder="Nome" required
+               th:field="*{nome}"
+               type="text"/>
+    </div>
+    <div class="form-group">
+        <label for="endereco">Endereço</label>
+        <input class="form-control" id="endereco" placeholder="Endereço" required
+               th:field="*{endereco}"
+               type="text"/>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Cadastrar Cartório">
+</form>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th></th>
+    </tr>
+    <tr th:if="${#lists.isEmpty(cartorios)}">
+        <td colspan="5">No Records found. Add some...!</td>
+    </tr>
+    <tr th:each="cartorio : ${cartorios}">
+        <td th:text="${cartorio.getId()}"></td>
+        <td th:text="${cartorio.getNome()}"></td>
+        <td th:text="${cartorio.getEndereco()}"></td>
+        <td>
+            <form th:action="@{/cartorios/{id}(id=${cartorio.getId()})}"  th:method="delete">
+                <input type="submit" value="Excluir" class="btn btn-danger"/>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
