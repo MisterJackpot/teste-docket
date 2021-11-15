@@ -1,5 +1,6 @@
 package com.misterjackpot.cartorio.infra.client;
 
+import com.misterjackpot.cartorio.dto.CertidaoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

@@ -1,4 +1,4 @@
-package com.misterjackpot.cartorio.infra.client;
+package com.misterjackpot.cartorio.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

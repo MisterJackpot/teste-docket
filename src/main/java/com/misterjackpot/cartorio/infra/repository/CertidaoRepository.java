@@ -1,7 +1,7 @@
 package com.misterjackpot.cartorio.infra.repository;
 
 import com.misterjackpot.cartorio.infra.client.CertidaoClient;
-import com.misterjackpot.cartorio.infra.client.CertidaoDTO;
+import com.misterjackpot.cartorio.dto.CertidaoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

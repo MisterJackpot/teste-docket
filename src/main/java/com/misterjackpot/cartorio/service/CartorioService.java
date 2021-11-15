@@ -1,7 +1,9 @@
 package com.misterjackpot.cartorio.service;
 
+import com.misterjackpot.cartorio.config.exception.ResourceNotFoundException;
 import com.misterjackpot.cartorio.converter.CartorioConverter;
 import com.misterjackpot.cartorio.dto.CartorioDTO;
+import com.misterjackpot.cartorio.infra.entity.CartorioEntity;
 import com.misterjackpot.cartorio.infra.repository.CartorioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,8 @@ public class CartorioService {
                 .collect(Collectors.toList());
     }
 
-    public void salvarCartorio(CartorioDTO cartorio) {
-        repository.save(converter.toEntity(cartorio));
+    public CartorioDTO salvarCartorio(CartorioDTO cartorio) {
+        return converter.toDTO(repository.save(converter.toEntity(cartorio)));
     }
 
     public void excluirCartorio(Long id) {
@@ -31,10 +33,19 @@ public class CartorioService {
     }
 
     public void atualizarCartorio(Long id, CartorioDTO cartorio) {
-        repository.save(converter.toEntity(cartorio));
+        if (repository.existsById(id)) {
+            repository.save(converter.toEntity(cartorio));
+        } else {
+            throw new ResourceNotFoundException(String.format("Cartório %s não foi encontrado", id));
+        }
     }
 
-    public CartorioDTO buscarCartorio(Long id){
-        return converter.toDTO(repository.getById(id));
+    public CartorioDTO buscarCartorio(Long id) {
+        if (repository.existsById(id)) {
+            return converter.toDTO(repository.getById(id));
+        } else {
+            throw new ResourceNotFoundException(String.format("Cartório %s não foi encontrado", id));
+        }
+
     }
 }

@@ -1,16 +1,14 @@
 package com.misterjackpot.cartorio.controller;
 
 import com.misterjackpot.cartorio.dto.CartorioDTO;
-import com.misterjackpot.cartorio.infra.client.CertidaoDTO;
+import com.misterjackpot.cartorio.dto.CertidaoDTO;
 import com.misterjackpot.cartorio.service.CartorioService;
 import com.misterjackpot.cartorio.service.CertidaoService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
