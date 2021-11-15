@@ -42,6 +42,6 @@ public class CartorioRest {
     @PutMapping("/{id}")
     public ResponseEntity<Void> atualizar(@PathVariable("id") Long id, @RequestBody CartorioDTO cartorio){
         service.atualizarCartorio(id, cartorio);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }
