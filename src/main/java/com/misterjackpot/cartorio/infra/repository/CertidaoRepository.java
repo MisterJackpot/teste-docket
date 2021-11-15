@@ -1,5 +1,6 @@
 package com.misterjackpot.cartorio.infra.repository;
 
+import com.misterjackpot.cartorio.config.exception.InfrastructureException;
 import com.misterjackpot.cartorio.infra.client.CertidaoClient;
 import com.misterjackpot.cartorio.dto.CertidaoDTO;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,10 @@ public class CertidaoRepository {
     private final CertidaoClient client;
 
     public List<CertidaoDTO> buscarCertidoes(){
-        return client.buscarCertidoes();
+        try {
+            return client.buscarCertidoes();
+        }catch (Exception e){
+            throw new InfrastructureException("Erro ao buscar tipos de certidão disponíveis");
+        }
     }
 }

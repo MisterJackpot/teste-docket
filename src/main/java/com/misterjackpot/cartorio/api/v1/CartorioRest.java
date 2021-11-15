@@ -27,7 +27,7 @@ public class CartorioRest {
     }
 
     @PostMapping
-    public ResponseEntity<String> salvar(@RequestBody CartorioDTO cartorio) {
+    public ResponseEntity<Void> salvar(@RequestBody CartorioDTO cartorio) {
         cartorio = service.salvarCartorio(cartorio);
 
         return ResponseEntity.created(URI.create("/cartorios/" + cartorio.getId())).build();
