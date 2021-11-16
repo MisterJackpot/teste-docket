@@ -1,6 +1,6 @@
 package com.misterjackpot.cartorio.infra.client;
 
-import com.misterjackpot.cartorio.dto.CertidaoDTO;
+import com.misterjackpot.cartorio.dto.TipoCertidaoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -10,5 +10,5 @@ import java.util.List;
 public interface CertidaoClient {
 
     @GetMapping
-    List<CertidaoDTO> buscarCertidoes();
+    List<TipoCertidaoDTO> buscarCertidoes();
 }

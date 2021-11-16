@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CertidaoDTO {
+public class TipoCertidaoDTO {
      private Long id;
      private String nome;
 }

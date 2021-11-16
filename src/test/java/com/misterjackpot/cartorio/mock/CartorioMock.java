@@ -2,7 +2,7 @@ package com.misterjackpot.cartorio.mock;
 
 import com.misterjackpot.cartorio.dto.CartorioDTO;
 import com.misterjackpot.cartorio.infra.entity.CartorioEntity;
-import com.misterjackpot.cartorio.infra.entity.CertidaoEntity;
+import com.misterjackpot.cartorio.infra.entity.CertidaoCartorioEntity;
 
 import java.util.Collections;
 
@@ -22,7 +22,7 @@ public class CartorioMock {
                 .id(1L)
                 .nome("Teste")
                 .endereco("Rua Teste")
-                .certidoes(Collections.singletonList(CertidaoEntity.builder()
+                .certidoes(Collections.singletonList(CertidaoCartorioEntity.builder()
                         .tipo(1L)
                         .build()))
                 .build();

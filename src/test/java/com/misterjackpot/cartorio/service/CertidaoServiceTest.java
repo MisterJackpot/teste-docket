@@ -1,6 +1,6 @@
 package com.misterjackpot.cartorio.service;
 
-import com.misterjackpot.cartorio.dto.CertidaoDTO;
+import com.misterjackpot.cartorio.dto.TipoCertidaoDTO;
 import com.misterjackpot.cartorio.infra.repository.CertidaoRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,7 +27,7 @@ class CertidaoServiceTest {
     public void deveRetornarTipoCertidao() {
         dadoQueRetorneTipoCertidoes();
 
-        List<CertidaoDTO> certidoes = service.buscarTiposCertidao();
+        List<TipoCertidaoDTO> certidoes = service.buscarTiposCertidao();
 
         assertEquals(certidoes, Collections.singletonList(buildCertidaoDTO()));
     }

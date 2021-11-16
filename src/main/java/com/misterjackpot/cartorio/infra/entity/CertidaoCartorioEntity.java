@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CertidaoEntity {
+public class CertidaoCartorioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

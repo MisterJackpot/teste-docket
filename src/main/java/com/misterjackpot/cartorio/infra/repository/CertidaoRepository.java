@@ -2,7 +2,7 @@ package com.misterjackpot.cartorio.infra.repository;
 
 import com.misterjackpot.cartorio.config.exception.InfrastructureException;
 import com.misterjackpot.cartorio.infra.client.CertidaoClient;
-import com.misterjackpot.cartorio.dto.CertidaoDTO;
+import com.misterjackpot.cartorio.dto.TipoCertidaoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +14,7 @@ public class CertidaoRepository {
 
     private final CertidaoClient client;
 
-    public List<CertidaoDTO> buscarCertidoes(){
+    public List<TipoCertidaoDTO> buscarCertidoes(){
         try {
             return client.buscarCertidoes();
         }catch (Exception e){

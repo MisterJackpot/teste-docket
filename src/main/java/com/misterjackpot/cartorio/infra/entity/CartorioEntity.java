@@ -3,7 +3,6 @@ package com.misterjackpot.cartorio.infra.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -26,5 +25,5 @@ public class CartorioEntity {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @EqualsAndHashCode.Exclude
-    private List<CertidaoEntity> certidoes;
+    private List<CertidaoCartorioEntity> certidoes;
 }

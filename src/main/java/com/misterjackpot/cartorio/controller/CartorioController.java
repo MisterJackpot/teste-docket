@@ -1,7 +1,7 @@
 package com.misterjackpot.cartorio.controller;
 
 import com.misterjackpot.cartorio.dto.CartorioDTO;
-import com.misterjackpot.cartorio.dto.CertidaoDTO;
+import com.misterjackpot.cartorio.dto.TipoCertidaoDTO;
 import com.misterjackpot.cartorio.service.CartorioService;
 import com.misterjackpot.cartorio.service.CertidaoService;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class CartorioController {
     @RequestMapping(value = "/cartorios", method = RequestMethod.GET)
     public String buscar(Model model) {
         List<CartorioDTO> cartorios = service.buscarCartorios();
-        Map<Long, CertidaoDTO> certidoes = certidaoService.buscarTiposCertidao().stream().collect(Collectors.toMap(CertidaoDTO::getId, Function.identity()));
+        Map<Long, TipoCertidaoDTO> certidoes = certidaoService.buscarTiposCertidao().stream().collect(Collectors.toMap(TipoCertidaoDTO::getId, Function.identity()));
 
         model.addAttribute("cartorios", cartorios);
         model.addAttribute("cartorioDTO", new CartorioDTO());
@@ -60,7 +60,7 @@ public class CartorioController {
     @RequestMapping(value = "/cartorios/{id}", method = RequestMethod.GET)
     public String telaEdicao(Model model, @PathVariable("id") Long id) {
 
-        Map<Long, CertidaoDTO> certidoes = certidaoService.buscarTiposCertidao().stream().collect(Collectors.toMap(CertidaoDTO::getId, Function.identity()));
+        Map<Long, TipoCertidaoDTO> certidoes = certidaoService.buscarTiposCertidao().stream().collect(Collectors.toMap(TipoCertidaoDTO::getId, Function.identity()));
 
         model.addAttribute("cartorio", service.buscarCartorio(id));
         model.addAttribute("tiposCertidao", certidoes);

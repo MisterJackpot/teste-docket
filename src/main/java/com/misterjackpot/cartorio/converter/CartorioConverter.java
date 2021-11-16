@@ -2,7 +2,7 @@ package com.misterjackpot.cartorio.converter;
 
 import com.misterjackpot.cartorio.dto.CartorioDTO;
 import com.misterjackpot.cartorio.infra.entity.CartorioEntity;
-import com.misterjackpot.cartorio.infra.entity.CertidaoEntity;
+import com.misterjackpot.cartorio.infra.entity.CertidaoCartorioEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
@@ -17,7 +17,7 @@ public class CartorioConverter {
                 .endereco(dto.getEndereco())
                 .build();
 
-        entity.setCertidoes(dto.getCertidoes().stream().map(certidao -> CertidaoEntity.builder()
+        entity.setCertidoes(dto.getCertidoes().stream().map(certidao -> CertidaoCartorioEntity.builder()
                 .cartorio(entity)
                 .tipo(certidao)
                 .build())
@@ -33,7 +33,7 @@ public class CartorioConverter {
                 .nome(entity.getNome())
                 .endereco(entity.getEndereco())
                 .certidoes(entity.getCertidoes().stream()
-                        .map(CertidaoEntity::getTipo)
+                        .map(CertidaoCartorioEntity::getTipo)
                         .collect(Collectors.toList()))
                 .build();
     }
